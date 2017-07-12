@@ -43,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        button.setVisibility(View.VISIBLE);
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+            button.setVisibility(View.VISIBLE);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
