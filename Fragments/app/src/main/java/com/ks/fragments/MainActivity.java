@@ -13,19 +13,20 @@ import com.ks.fragments.dummy.Frag_two;
 
 public class MainActivity extends AppCompatActivity {
     FragmentTransaction fragmentTransaction;
+    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         TextView tv = (TextView) findViewById(R.id.tv);
-        tv.setText("This is in Activity");
+        tv.setText("This is in Activity, so, will not change.");
         final android.app.FragmentManager fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
         FragOne fragOne = new FragOne();
         fragmentTransaction.add(R.id.fragment_one_container,fragOne);
         fragmentTransaction.commit();
-        Button button = (Button) findViewById(R.id.frag_btn);
+        button = (Button) findViewById(R.id.frag_btn);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +35,14 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.replace(R.id.fragment_one_container,frag_two);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+                button.setVisibility(View.INVISIBLE);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        button.setVisibility(View.VISIBLE);
     }
 }
