@@ -1,12 +1,10 @@
 package com.ks.fragments;
 
 import android.app.FragmentTransaction;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.ks.fragments.dummy.Frag_two;
@@ -27,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.add(R.id.fragment_one_container,fragOne);
         fragmentTransaction.commit();
         button = (Button) findViewById(R.id.frag_btn);
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,11 +42,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
-            button.setVisibility(View.VISIBLE);
-        } else {
-            super.onBackPressed();
-        }
+        button.setVisibility(View.VISIBLE);
     }
 }
