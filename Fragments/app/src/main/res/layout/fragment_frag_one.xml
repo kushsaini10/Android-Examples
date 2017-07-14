@@ -4,21 +4,25 @@
     android:layout_height="match_parent"
     tools:context="com.ks.fragments.FragOne">
 <LinearLayout
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     >
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="This is Fragment One"
         android:id="@+id/tv1_f1"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="We are in Fragment One"
         android:id="@+id/tv2_f1"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_f1"/>
 </LinearLayout>
 
 </FrameLayout>

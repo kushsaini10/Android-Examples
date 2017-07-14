@@ -1,10 +1,9 @@
 package com.ks.fragments;
 
-
 import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,52 +12,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
+import com.ks.fragments.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class FragOne extends android.app.Fragment {
-    OnTextChangedListenerFragOne mListner;
-    public interface OnTextChangedListenerFragOne {
+public class FragTwo extends android.app.Fragment {
+    OnTextChangedListenerFragTwo mListner;
+    public interface OnTextChangedListenerFragTwo {
         void TextChanged(String text);
-    }
-
-
-    public FragOne() {
-        // Required empty public constructor
     }
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try{
-            mListner = (OnTextChangedListenerFragOne) activity;
+            mListner = (OnTextChangedListenerFragTwo) activity;
         }catch (ClassCastException e){
-            throw new ClassCastException(activity.toString() + " must implement OnTextChangedListenerFragOne");
+            throw new ClassCastException(activity.toString() + " must implement OnTextChangedListenerFragTwo");
         }
-    }
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        Activity activity;
-//
-//        if (context instanceof Activity) {
-//            activity = (Activity) context;
-//
-//            try {
-//                mListner = (OnTextChangedListenerFragOne) activity;
-//            } catch (ClassCastException e) {
-//                throw new ClassCastException(activity.toString() + " must implement OnTextChangedListenerFragOne");
-//            }
-//        }
-//    }
-    @Override
-    public void onPause() {
-        super.onPause();
     }
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
@@ -66,10 +39,9 @@ public class FragOne extends android.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_frag_one, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_frag_two, container, false);
         final String textActivity = getArguments().getString("text_from_activity");
-        EditText et = view.findViewById(R.id.et_f1);
+        EditText et = view.findViewById(R.id.et_f2);
 
         et.addTextChangedListener(new TextWatcher() {
             @Override
@@ -85,7 +57,7 @@ public class FragOne extends android.app.Fragment {
             @Override
             public void afterTextChanged(Editable editable) {
                 String text = editable.toString();
-                if (text.length()!=0) {
+                if (text.length() != 0) {
                     if (text != textActivity) {
                         mListner.TextChanged(text);
                     }
@@ -94,5 +66,4 @@ public class FragOne extends android.app.Fragment {
         });
         return view;
     }
-
 }

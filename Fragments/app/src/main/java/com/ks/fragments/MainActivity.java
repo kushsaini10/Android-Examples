@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.ks.fragments.dummy.Frag_two;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragOne.OnTextChangedListenerFragOne,FragTwo.OnTextChangedListenerFragTwo {
     FragmentTransaction fragmentTransaction;
     Button button;
     @Override
@@ -21,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("This is in Activity, so, will not change.");
         final android.app.FragmentManager fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
+        final Bundle bundle = new Bundle();
+        bundle.putString(tv.getText()+"","text_from_activity");
         FragOne fragOne = new FragOne();
+        fragOne.setArguments(bundle);
         fragmentTransaction.add(R.id.fragment_one_container,fragOne);
         fragmentTransaction.commit();
         button = (Button) findViewById(R.id.frag_btn);
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Frag_two frag_two = new Frag_two();
+                final FragTwo frag_two = new FragTwo();
+                frag_two.setArguments(bundle);
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_one_container,frag_two);
                 fragmentTransaction.addToBackStack(null);
@@ -43,5 +45,11 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         button.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void TextChanged(String text) {
+        TextView textView = (TextView) findViewById(R.id.tv);
+        textView.setText(text);
     }
 }

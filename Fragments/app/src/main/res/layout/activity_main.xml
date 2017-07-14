@@ -7,22 +7,26 @@
     tools:context="com.ks.fragments.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:layout_weight="0"
         android:id="@+id/tv"/>
     <FrameLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0"
         android:id="@+id/fragment_one_container"></FrameLayout>
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/fragment_two_container"></FrameLayout>
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/fragment_two_container"-->
+        <!--android:layout_weight="1"></FrameLayout>-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tap To Load Next Fragment"
         android:id="@+id/frag_btn"
-        android:onClick="btnClick"/>
+        android:onClick="btnClick"
+        android:layout_weight="0"/>
 </LinearLayout>
