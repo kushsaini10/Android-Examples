@@ -11,11 +11,14 @@ public class MainActivity extends AppCompatActivity {
 //    boolean mBound;
     boolean runService = false;
     Intent intent;
+    static final String SERVICE_STATE = "serviceState";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        if (savedInstanceState!=null){
+            runService = savedInstanceState.getBoolean(SERVICE_STATE);
+        }
         intent = new Intent();
         intent.setClass(this,MyService.class);
         Button startBtn = (Button) findViewById(R.id.startBtn);
@@ -35,11 +38,26 @@ public class MainActivity extends AppCompatActivity {
                 stopService(intent);
             }
         });
+
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(SERVICE_STATE, runService);
+        super.onSaveInstanceState(outState);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        if (runService){
+            startService(intent);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (runService){
             startService(intent);
         }
