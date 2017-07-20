@@ -8,14 +8,13 @@ import android.arch.persistence.room.PrimaryKey;
  */
 @Entity(tableName = "user")
 public class User {
-    public User(int user_id, String name, String age, String address) {
-        this.user_id = user_id;
+    public User(String name, String age, String address) {
         this.name = name;
         this.age = age;
         this.address = address;
     }
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int user_id;
 
     public String name;
