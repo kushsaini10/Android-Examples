@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.root.constraintlayoutexample.MainActivity">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        android:id="@+id/edit_btn"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirm Edit"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        android:visibility="gone"
+        android:id="@+id/confirm_btn"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name : "
+        android:id="@+id/name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.02"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/user_id"
+        android:text="User Id :"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/user_id"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Age :"
+        android:layout_marginTop="10dp"
+        android:id="@+id/age"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Patient Name"
+        android:id="@+id/name_tv"
+        app:layout_constraintLeft_toRightOf="@id/name"
+        app:layout_constraintBottom_toBottomOf="@id/name"
+        android:visibility="gone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Patient Id"
+        android:id="@+id/id_tv"
+        app:layout_constraintLeft_toRightOf="@id/user_id"
+        app:layout_constraintBottom_toBottomOf="@id/user_id"
+        android:visibility="gone"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Patient Age"
+        android:id="@+id/age_tv"
+        app:layout_constraintLeft_toRightOf="@id/age"
+        app:layout_constraintBottom_toBottomOf="@id/age"
+        android:visibility="gone"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Edit Patient Name"
+        android:id="@+id/name_et"
+        app:layout_constraintLeft_toRightOf="@id/name"
+        app:layout_constraintBottom_toBottomOf="@id/name"
+        android:visibility="visible" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Edit Patient Id"
+        android:id="@+id/id_et"
+        app:layout_constraintLeft_toRightOf="@id/user_id"
+        app:layout_constraintBottom_toBottomOf="@id/user_id"
+        android:visibility="visible"/>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Edit Patient Age"
+        android:id="@+id/age_et"
+        app:layout_constraintLeft_toRightOf="@id/age"
+        app:layout_constraintBottom_toBottomOf="@id/age"
+        android:visibility="visible"/>
+</android.support.constraint.ConstraintLayout>
