@@ -7,8 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-//    MyBoundService mBoundService;
-//    boolean mBound;
     boolean runService = false;
     Intent intent;
     static final String SERVICE_STATE = "serviceState";
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         }
         intent = new Intent();
         intent.setClass(this,MyService.class);
-        Button startBtn = (Button) findViewById(R.id.startBtn);
+        final Button startBtn = (Button) findViewById(R.id.startBtn);
         Button stopBtn = (Button) findViewById(R.id.stopBtn);
 
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +36,15 @@ public class MainActivity extends AppCompatActivity {
                 stopService(intent);
             }
         });
-
+        Button button = (Button) findViewById(R.id.btn_next_activity);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setClass(MainActivity.this,Main2Activity.class);
+                startActivity(i);
+            }
+        });
     }
 
     @Override
