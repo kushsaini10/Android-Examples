@@ -18,5 +18,11 @@
         android:id="@+id/stopBtn"
         android:text="Stop"
         android:textColor="#ff0000"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_next_activity"
+        android:text="Next Activity"
+        />
 
 </LinearLayout>
