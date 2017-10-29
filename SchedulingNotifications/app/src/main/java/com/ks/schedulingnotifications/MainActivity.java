@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ComponentName componentName = new ComponentName(this, MyJobService.class);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            ComponentName componentName = new ComponentName(this, MyJobService.class);
             JobInfo.Builder jobBuilder = new JobInfo.Builder(1, componentName);
             String myDate = "2017/09/8 12:33:00";
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
